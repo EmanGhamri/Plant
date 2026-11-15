@@ -11,6 +11,9 @@
     ],
   },
   "files": [
+    { "kind": "folder", "path": "ViewModel", "target-membership": [ "Plant" ] },
+    { "kind": "folder", "path": "View", "target-membership": [ "Plant" ] },
+    { "kind": "folder", "path": "Model", "target-membership": [ "Plant" ] },
     { "kind": "folder", "path": "Plant", "target-membership": [ "Plant" ] },
     {
       "kind": "group",
