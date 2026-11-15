@@ -46,9 +46,9 @@ struct ContentView: View {
                     .buttonStyle(.plain)
                     .padding(.horizontal, 30)
                     .padding(.top, 50)
-                    }
+                }
                 
-            
+                
                 .padding(.bottom, 160)
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .overlay(alignment: .topLeading) {
@@ -56,20 +56,20 @@ struct ContentView: View {
                         Text("My Plants 🌱")
                             .font(.largeTitle.bold())
                             .padding(.horizontal, 20)
-
+                        
                         Rectangle()
                             .fill(Color.gray.opacity(0.3))
                             .frame(height: 1)
                             .padding(.leading, 20)
                     }
                     .padding(.top, 10)
-                
+                    
                 }
                 .toolbar(.hidden, for: .navigationBar)
             } else { PlantListView(viewModel: viewModel, onAdd: {
                 showAddSheet = true
             })
-                .navigationTitle("My Plants 🌱")
+            .navigationTitle("My Plants 🌱")
                 
             }
             
@@ -80,6 +80,12 @@ struct ContentView: View {
         }
         .sheet(isPresented: $showAddSheet) {
             AddPlantView(viewModel: viewModel)
+        }
+        .task {
+            while !Task.isCancelled {
+                viewModel.resetDuePlants()
+                try? await Task.sleep(for: .seconds(1))
+            }
         }
         
         

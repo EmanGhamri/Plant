@@ -25,12 +25,31 @@ class PlantViewModel {
     // MARK: - Actions
     func addPlant(_ plant: Plant) {
         plants.append(plant)
-        NotificationManager.shared.schedule(for: plant)
+        
     }
     
     func toggleWatered(_ plant: Plant) {
         if let index = plants.firstIndex(where: { $0.id == plant.id }) {
             plants[index].isWatered.toggle()
+            
+            if plants[index].isWatered {
+                plants[index].wateredDate = Date()
+                NotificationManager.shared.schedule(for: plants[index])
+            } else {
+                plants[index].wateredDate = nil
+                NotificationManager.shared.cancel(for: plants[index])
+            }
+        }
+    }
+    
+    func resetDuePlants() {
+        for index in plants.indices {
+            if plants[index].isWatered,
+               let date = plants[index].wateredDate,
+               Date() >= date.addingTimeInterval(NotificationManager.shared.interval(for: plants[index])) {
+                plants[index].isWatered = false
+                plants[index].wateredDate = nil
+            }
         }
     }
     func updatePlant(_ updated: Plant) {

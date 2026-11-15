@@ -11,6 +11,7 @@ struct Plant: Identifiable {
     var days: WateringDays         // how often
     var amount: WateringAmount     // "20-50 ml" tag
     var isWatered: Bool = false    // fixed the spelling
+    var wateredDate: Date? = nil
 }
 
 // light conditons difinetion useing enum wich fixed set of choices,, CaseItrerable : gives the full access of the list
@@ -29,15 +30,17 @@ enum WateringDays:String,Codable,CaseIterable{
     case oneW="Once a Week"
     case E10D="Every 10 Days"
     case E2W="Every 2 Weeks"
+    case E10S="Every 10 Seconds"
     
-    var days: Int {
+    var seconds: TimeInterval {
         switch self {
-        case .ED:   return 1
-        case .E2D:  return 2
-        case .E3D:  return 3
-        case .oneW: return 7
-        case .E10D: return 10
-        case .E2W:  return 14
+        case .ED:   return 1 * 24 * 60 * 60
+        case .E2D:  return 2 * 24 * 60 * 60
+        case .E3D:  return 3 * 24 * 60 * 60
+        case .oneW: return 7 * 24 * 60 * 60
+        case .E10D: return 10 * 24 * 60 * 60
+        case .E2W:  return 14 * 24 * 60 * 60
+        case .E10S:  return 10
         }
     }
 }
