@@ -9,24 +9,22 @@ struct PlantListView: View {
             
             ProgressHeaderView(
                 message: viewModel.statusMessage,
-                progress: viewModel.progress
-            )
-            
-            List {
-                ForEach(viewModel.plants) { plant in
-                    PlantRowView(plant: plant) {
-                        viewModel.toggleWatered(plant)
-                    }
-                    .contentShape(Rectangle())
-                    .onTapGesture {
-                        if !plant.isWatered {
-                            selectedPlant = plant
-                        }
+                progress: viewModel.progress)
+    
+    List {
+         ForEach(viewModel.plants) { plant in
+                PlantRowView(plant: plant) {
+                    viewModel.toggleWatered(plant)}
+                    
+                    
+                .contentShape(Rectangle())
+                .onTapGesture {
+                if !plant.isWatered {
+                            selectedPlant = plant}
                     }
                 }
                 .onDelete { offsets in
-                    viewModel.deletePlant(at: offsets)
-                }
+                    viewModel.deletePlant(at: offsets)}
             }
             
             .listStyle(.plain)

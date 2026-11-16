@@ -18,15 +18,12 @@ class PlantViewModel {
         if wateredCount == 0 {
             return "Your plants are waiting for a sip 💦"
         } else {
-            return "\(wateredCount) of your plants feel loved today✨"
-        }
+            return "\(wateredCount) of your plants feel loved today✨"}
     }
     
     // MARK: - Actions
     func addPlant(_ plant: Plant) {
-        plants.append(plant)
-        
-    }
+        plants.append(plant)}
     
     func toggleWatered(_ plant: Plant) {
         if let index = plants.firstIndex(where: { $0.id == plant.id }) {
@@ -37,8 +34,7 @@ class PlantViewModel {
                 NotificationManager.shared.schedule(for: plants[index])
             } else {
                 plants[index].wateredDate = nil
-                NotificationManager.shared.cancel(for: plants[index])
-            }
+                NotificationManager.shared.cancel(for: plants[index])}
         }
     }
     
@@ -48,14 +44,12 @@ class PlantViewModel {
                let date = plants[index].wateredDate,
                Date() >= date.addingTimeInterval(NotificationManager.shared.interval(for: plants[index])) {
                 plants[index].isWatered = false
-                plants[index].wateredDate = nil
-            }
+                plants[index].wateredDate = nil }
         }
     }
     func updatePlant(_ updated: Plant) {
         if let index = plants.firstIndex(where: { $0.id == updated.id }) {
-            plants[index] = updated
-        }
+            plants[index] = updated }
     }
     
     func deletePlant(at offsets: IndexSet) {

@@ -81,6 +81,7 @@ struct AddPlantView: View {
                 }
             }
             .navigationTitle("Set Reminder")
+            .tint(.white)
             
             
             .navigationBarTitleDisplayMode(.inline)
@@ -99,8 +100,8 @@ struct AddPlantView: View {
                     } label: {
                         Image(systemName: "checkmark")
                     }
-                    .buttonStyle(.borderedProminent)     // NEW: fills the button with color
-                    .tint(Color(red: 0.1, green: 0.4, blue: 0.3))
+                    .buttonStyle(.glassProminent)     // NEW: fills the button with color
+                    .tint(Color(red: 0.1, green: 0.4, blue: 0.3).opacity(0.8))
                     .disabled(name.isEmpty)
                 }
             }

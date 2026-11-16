@@ -17,7 +17,7 @@ struct ProgressHeaderView: View {
                 .font(.callout)
             
             ProgressView(value: progress)
-                .tint(Color(red: 0.1, green: 0.4, blue: 0.3))
+                .tint(Color(red: 51/255, green: 128/255, blue: 105/255))
         }
         .padding(.horizontal, 20)
         .padding(.vertical, 16)
