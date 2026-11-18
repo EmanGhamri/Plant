@@ -13,10 +13,13 @@ struct ContentView: View {
                 VStack {
                     Image("Image")
                         .padding(.vertical,60)
+                        .offset(y: 100)
                     
                     Text("Start your plant journey! ")
                     
                         .font(.system(size: 23, weight: .heavy))
+                        .offset(y: 40)
+                    
                     
                     
                     Text("Now all your plants will be in one place and we will help you take care of them :)🪴")
@@ -24,6 +27,7 @@ struct ContentView: View {
                         .multilineTextAlignment(.center)
                         .padding(.horizontal,20 )
                         .padding(.vertical,10)
+                        .offset(y: 30)
                     
                     
                     
@@ -39,7 +43,7 @@ struct ContentView: View {
                             .frame(maxWidth: .infinity, minHeight: 25)
                             .padding(.vertical, 14)
                             .glassEffect(
-                                .regular.tint(Color(red: 0.1, green: 0.4, blue: 0.3).opacity(0.8)).interactive(),
+                                .regular.tint(Color(red: 51/255, green: 128/255, blue: 105/255)).interactive(),
                                 in: .capsule
                             )
                     }

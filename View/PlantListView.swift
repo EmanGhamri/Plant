@@ -7,28 +7,35 @@ struct PlantListView: View {
     var body: some View {
         VStack(spacing: 0) {
             
-            ProgressHeaderView(
-                message: viewModel.statusMessage,
-                progress: viewModel.progress)
-    
-    List {
-         ForEach(viewModel.plants) { plant in
-                PlantRowView(plant: plant) {
-                    viewModel.toggleWatered(plant)}
-                    
-                    
-                .contentShape(Rectangle())
-                .onTapGesture {
-                if !plant.isWatered {
-                            selectedPlant = plant}
-                    }
-                }
-                .onDelete { offsets in
-                    viewModel.deletePlant(at: offsets)}
-            }
-            
-            .listStyle(.plain)
-        }
+            if viewModel.allWatered {
+                AllDoneView()
+            } else {
+                ProgressHeaderView(
+                    message: viewModel.statusMessage,
+                    progress: viewModel.progress
+                )
+                
+                List {
+                    ForEach(viewModel.sortedPlants) { plant in
+                        PlantRowView(plant: plant) {
+                            viewModel.toggleWatered(plant)
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if !plant.isWatered {
+                                selectedPlant = plant
+                            }
+                        }
+                        .swipeActions(edge: .trailing) {
+                            Button(role: .destructive) {
+                                viewModel.deletePlant(plant)
+                            } label: {
+                                Label("Delete", systemImage: "trash")
+                            }
+                        }
+                    }                }
+                .listStyle(.plain)
+            }}
         .overlay(alignment: .bottomTrailing) {
             Button {
                 onAdd()

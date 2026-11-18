@@ -20,6 +20,13 @@ class PlantViewModel {
         } else {
             return "\(wateredCount) of your plants feel loved today✨"}
     }
+    var allWatered: Bool {
+        !plants.isEmpty && wateredCount == plants.count
+    }
+    
+    var sortedPlants: [Plant] {
+        plants.filter { !$0.isWatered } + plants.filter { $0.isWatered }
+    }
     
     // MARK: - Actions
     func addPlant(_ plant: Plant) {
