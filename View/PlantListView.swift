@@ -58,9 +58,9 @@ struct PlantListView: View {
 
 #Preview {
     let vm = PlantViewModel()
-    vm.addPlant(Plant(name: "Monstera", room: .kitchen, light: .full, days: .oneW, amount: .one))
-    vm.addPlant(Plant(name: "Pothos", room: .bedroom, light: .full, days: .E3D, amount: .one))
-    vm.addPlant(Plant(name: "Orchid", room: .livingroom, light: .partial, days: .E2W, amount: .two))
+    vm.addPlant(Plant(name: "Monstera", room: .kitchen, light: .full, days: .oneWeek, amount: .one))
+    vm.addPlant(Plant(name: "Pothos", room: .bedroom, light: .full, days: .Every3Day, amount: .one))
+    vm.addPlant(Plant(name: "Orchid", room: .livingroom, light: .partial, days: .Every2Week, amount: .two))
     return PlantListView(viewModel: vm, onAdd: { })
         .preferredColorScheme(.dark)
 }

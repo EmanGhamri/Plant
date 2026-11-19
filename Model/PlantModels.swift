@@ -24,23 +24,23 @@ enum LightCondition: String,CaseIterable,Codable{
 
 // make the watering Days list
 enum WateringDays:String,Codable,CaseIterable{
-    case ED="Every Day"
-    case E2D="Every 2 Days"
-    case E3D="Every 3 Days"
-    case oneW="Once a Week"
-    case E10D="Every 10 Days"
-    case E2W="Every 2 Weeks"
-    case E10S="Every 10 Seconds"
+    case EveryDay="Every Day"
+    case Every2Day="Every 2 Days"
+    case Every3Day="Every 3 Days"
+    case oneWeek="Once a Week"
+    case Every10Day="Every 10 Days"
+    case Every2Week="Every 2 Weeks"
+    case Every10Ssecond="Every 10 Seconds"
     
     var seconds: TimeInterval {
         switch self {
-        case .ED:   return 1 * 24 * 60 * 60
-        case .E2D:  return 2 * 24 * 60 * 60
-        case .E3D:  return 3 * 24 * 60 * 60
-        case .oneW: return 7 * 24 * 60 * 60
-        case .E10D: return 10 * 24 * 60 * 60
-        case .E2W:  return 14 * 24 * 60 * 60
-        case .E10S:  return 10
+        case .EveryDay:   return 1 * 24 * 60 * 60
+        case .Every2Day:  return 2 * 24 * 60 * 60
+        case .Every3Day:  return 3 * 24 * 60 * 60
+        case .oneWeek: return 7 * 24 * 60 * 60
+        case .Every10Day: return 10 * 24 * 60 * 60
+        case .Every2Week:  return 14 * 24 * 60 * 60
+        case .Every10Ssecond:  return 10
         }
     }
 }

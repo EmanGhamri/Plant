@@ -65,7 +65,7 @@ struct TagView: View {
         plant: Plant(name: "Monstera",
                      room: .kitchen,
                      light: .full,
-                     days: .oneW,
+                     days: .oneWeek,
                      amount: .one),
         onToggle: { }
     )

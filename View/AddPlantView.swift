@@ -18,7 +18,7 @@ struct AddPlantView: View {
         _name = State(initialValue: plantToEdit?.name ?? "")
         _room = State(initialValue: plantToEdit?.room ?? .bedroom)
         _light = State(initialValue: plantToEdit?.light ?? .full)
-        _days = State(initialValue: plantToEdit?.days ?? .ED)
+        _days = State(initialValue: plantToEdit?.days ?? .EveryDay)
         _amount = State(initialValue: plantToEdit?.amount ?? .one)
     }
     
