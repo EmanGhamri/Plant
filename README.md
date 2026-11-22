@@ -13,12 +13,6 @@ Planto is a simple iOS application designed to help users organize their plant c
 - **Personalized Watering:** Choose suitable watering amounts for each plant.
 - **Dark Mode:** Enjoy a clean and user-friendly interface.
 
-## 📱 App Screenshots
-
-<p align="center">
-  <img src="images/home.png" alt="Home Screen" width="250">
-  <img src="images/add-plant.png" alt="Add Plant Screen" width="250">
-</p>
 
 <p align="center">
   <em>Home Screen &nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp; Add Plant Screen</em>
